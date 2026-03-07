@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Direct Pro</title>
+    <style>
+        :root {
+            --primary-color: #25D366;
+            --primary-dark: #25D366;
+            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #f5f7fa 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-main: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: var(--text-main);
+        }
+
+        .card {
+            background:#fff;
+            padding: 40px 30px;
+            border-radius: px;
+            
+            width: 100%;
+            max-width: 380px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .header h2 {
+            margin: 0;
+            color: var(--primary-dark);
+            font-size: 28px;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 8px;
+        }
+
+        /* Input Layout */
+        .phone-input-container {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .country-code {
+            flex: 0 0 60px;
+            border-bottom: 2px solid #ddd;
+            padding: 12px 0;
+            font-weight: bold;
+            color: var(--primary-dark);
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .input-group {
+            position: relative;
+            flex: 1;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px 0;
+            font-size: 18px;
+            border: none;
+            border-bottom: 2px solid #ddd;
+            outline: none;
+            transition: all 0.3s ease;
+            background: transparent;
+            color: var(--text-main);
+        }
+
+        textarea {
+            font-size: 15px;
+            margin-top: 20px;
+            resize: none;
+            height: 60px;
+        }
+
+        label {
+            position: absolute;
+            top: 12px;
+            left: 0;
+            color: #95a5a6;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            font-size: 16px;
+        }
+
+        input:focus ~ label,
+        input:not(:placeholder-shown) ~ label,
+        textarea:focus ~ label,
+        textarea:not(:placeholder-shown) ~ label {
+            top: -15px;
+            font-size: 12px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        input:focus, textarea:focus {
+            border-bottom-color: var(--primary-color);
+        }
+
+        button {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 15px rgba(37, 211, 102, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #bdc3c7;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="header">
+        <h4>Ads india product</h4>
+        <h2>Open Whatsapp  number</h2>
+        <p>Number se Direct chat shuru karein bina number save kiye</p>
+    </div>
+
+    <div class="phone-input-container">
+        <div class="country-code">🇮🇳 +91</div>
+        <div class="input-group">
+            <input type="tel" id="phone" placeholder=" " maxlength="10" autocomplete="off">
+            <label>Mobile Number</label>
+        </div>
+    </div>
+
+    <div class="input-group">
+        <textarea id="message" placeholder=" "></textarea>
+        <label>Message Type karein...</label>
+    </div>
+
+    <button onclick="sendToWhatsApp()">
+        <span>Search and open</span>
+    </button>
+
+    <div class="footer">
+        Safe • Fast • No Data Saved
+    </div>
+    <div class="footer">यहां आपका कोई भी डेटा सेव नहीं होता ये एकदम पूरी तरह से सुरक्षित है।</div>
+</div>
+
+<script>
+    function sendToWhatsApp() {
+        const phone = document.getElementById('phone').value.trim();
+        const msg = document.getElementById('message').value.trim();
+        
+        // Clean number (sirf digits)
+        const cleanPhone = phone.replace(/\D/g, '');
+
+        if (cleanPhone.length === 10) {
+            // India code +91 ke sath link generate karein
+            let url = `https://wa.me/91${cleanPhone}`;
+            
+            // Agar message hai to use encode karke add karein
+            if (msg !== "") {
+                url += `?text=${encodeURIComponent(msg)}`;
+            }
+            
+            window.open(url, '_blank');
+        } else {
+            alert("Kripya sahi 10-digit mobile number daalein!");
+        }
+    }
+</script>
+
+</body>
+</html>
