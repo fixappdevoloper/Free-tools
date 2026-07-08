@@ -3,240 +3,810 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ads India - Free Tools</title>
+    <title>बाल पाठशाला - Learn English with Arun Sir</title>
     <style>
         :root {
-            --primary: #1a73e8;
-            --bg: #ffffff;
-            --card-bg: #f8f9fa;
-            --text-color: #202124;
-            --sub-text: #5f6368;
-            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --primary-color: #ff5722;
+            --secondary-color: #4caf50;
+            --board-bg: #1e4620; /* क्लासरूम बोर्ड का हरा रंग */
+            --bg-color: #ffeb3b; /* बच्चों का पसंदीदा पीला रंग */
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
         }
 
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--bg);
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #ffeb3b, #ff9800);
             color: var(--text-color);
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            overflow-x: hidden;
+            user-select: none;
         }
 
-        /* Top Bar */
-        .top-bar {
+        header {
             width: 100%;
-            background: var(--bg);
-            padding: 15px 0;
-            text-align: center;
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .top-bar h2 {
-            margin: 0;
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: 0.5px;
-        }
-
-        /* Moving Ads India Section */
-        .moving-container {
-            width: 100%;
-            overflow: hidden;
-            background: #fff0f3;
-            padding: 10px 0;
-            margin-top: 2px;
-            border-bottom: 1px solid #ffe0e6;
-        }
-
-        .ads-india {
-            display: inline-block;
-            white-space: nowrap;
-            padding: 8px 30px;
-            background: linear-gradient(90deg, #ff0080, #7928ca);
-            color: white;
-            border-radius: 12px;
-            font-weight: bold;
-            font-size: 16px;
-            position: relative;
-            animation: moveLeftRight 6s linear infinite;
-        }
-
-        @keyframes moveLeftRight {
-            0% { transform: translateX(-100%); left: 0%; }
-            100% { transform: translateX(100%); left: 100%; }
-        }
-
-        /* Follow Button */
-        .follow-btn {
-            margin-top: 30px;
-            background: var(--primary);
-            color: #fff;
-            padding: 10px 35px;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            transition: 0.3s;
-            border: none;
-            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.3);
-        }
-        .follow-btn:active { transform: scale(0.9); }
-
-        /* Tools Grid */
-        .tools-grid {
-            width: 90%;
             max-width: 500px;
-            margin-top: 35px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .tool-card {
-            background: var(--card-bg);
-            border: 1px solid #e0e0e0;
-            border-radius: 15px;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .tool-card:hover { border-color: var(--primary); background: #fff; transform: translateY(-2px); box-shadow: var(--shadow); }
-
-        .tool-card svg {
-            width: 35px;
-            height: 35px;
-            fill: var(--primary);
-        }
-
-        .tool-card span {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--text-color);
-        }
-
-        /* Footer Text */
-        .welcome-text {
-            margin-top: 40px;
-            font-size: 14px;
-            color: var(--primary);
-            font-weight: 500;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 0.4; }
-            50% { opacity: 1; }
-            100% { opacity: 0.4; }
-        }
-
-        .disclaimer {
-            width: 85%;
+            background: linear-gradient(to bottom, #ff2a6d, #ff5722);
+            color: white;
             text-align: center;
-            font-size: 12px;
-            color: var(--sub-text);
-            margin: 30px 0;
-            line-height: 1.6;
-            padding: 15px;
-            border-top: 1px solid #eee;
+            padding: 15px 0;
+            font-size: 26px;
+            font-weight: bold;
+            box-shadow: 0 6px 0 #b33600;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            text-shadow: 2px 2px 0px #000;
         }
 
-        /* Transition Overlay */
-        .overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: #fff;
-            z-index: 2000;
-            display: none;
+        .app-container {
+            width: 90%;
+            max-width: 450px;
+            margin-top: 15px;
+            display: flex;
             flex-direction: column;
+            align-items: center;
+            padding-bottom: 140px;
+        }
+
+        /* वेलकम / नेम इनपुट स्क्रीन स्टाइल */
+        .welcome-screen {
+            background: white;
+            border: 4px solid #000;
+            border-bottom: 10px solid #000;
+            border-radius: 25px;
+            width: 100%;
+            padding: 25px;
+            box-sizing: border-box;
+            text-align: center;
+            margin-top: 40px;
+            display: none;
+        }
+
+        .welcome-screen input {
+            width: 80%;
+            padding: 12px;
+            font-size: 18px;
+            border: 3px solid #000;
+            border-radius: 15px;
+            text-align: center;
+            margin: 15px 0;
+            outline: none;
+        }
+
+        .welcome-screen button {
+            background: #4caf50;
+            color: white;
+            border: 3px solid #000;
+            border-bottom: 6px solid #000;
+            border-radius: 15px;
+            padding: 10px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* 2D क्लासरूम और अरुण सर */
+        .classroom-container {
+            width: 100%;
+            background: #a0522d; /* लकड़ी का फ्रेम */
+            padding: 12px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        /* ब्लैकबोर्ड / व्हाइटबोर्ड */
+        .smart-board {
+            background-color: var(--board-bg);
+            border: 6px solid #5d3a1a;
+            border-radius: 10px;
+            padding: 15px;
+            color: #ffffff;
+            min-height: 120px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px #000;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .board-chalk-text {
+            color: #f5f5f5;
+            font-family: 'Courier New', Courier, monospace;
+            border-bottom: 2px dashed #ffffff;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        /* 2D Teacher Animation Scene */
+        .teacher-scene {
+            display: flex;
             align-items: center;
             justify-content: center;
+            margin-top: 10px;
+            gap: 20px;
+            width: 100%;
+            position: relative;
         }
 
-        .loader {
-            width: 45px;
-            height: 45px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid var(--primary);
+        .avatar-wrapper {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            background: #ffdbac;
             border-radius: 50%;
-            animation: spin 0.8s linear infinite;
+            position: relative;
+            border: 4px solid #000;
+            box-shadow: 0 6px 0 rgba(0,0,0,0.1);
         }
 
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        /* चश्मा */
+        .avatar::before {
+            content: '👓';
+            position: absolute;
+            top: 12px;
+            left: 16px;
+            font-size: 45px;
+            z-index: 2;
+        }
 
-        .overlay-text {
-            margin-top: 15px;
+        /* बोलते हुए मुँह का एनीमेशन */
+        .mouth {
+            position: absolute;
+            bottom: 18px;
+            left: 32px;
+            width: 26px;
+            height: 10px;
+            background: #ff3333;
+            border-radius: 0 0 20px 20px;
+            border: 3px solid #000;
+            transition: 0.1s;
+        }
+
+        /* पढ़ाने वाली छड़ी (Pointer Stick) */
+        .teaching-stick {
+            font-size: 45px;
+            position: absolute;
+            right: -20px;
+            top: 10px;
+            transform: rotate(-20deg);
+            transition: 0.3s ease;
+            transform-origin: bottom left;
+        }
+
+        .stick-moving {
+            animation: pointAction 0.6s infinite alternate;
+        }
+
+        @keyframes pointAction {
+            0% { transform: rotate(-20deg) translateY(0); }
+            100% { transform: rotate(-45deg) translateY(-10px); }
+        }
+
+        /* अरुण सर का डायलॉग बॉक्स */
+        .speech-bubble {
+            background: white;
+            border: 4px solid #000;
+            border-radius: 20px;
+            padding: 12px;
             font-size: 16px;
-            color: var(--text-color);
-            font-weight: 500;
+            font-weight: bold;
+            box-shadow: 0 6px 0 #000;
+            flex-1: 1;
+            max-width: 60%;
+            position: relative;
         }
+
+        /* मेनू की बनावट - बच्चों के रंग */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .topic-btn {
+            background: white;
+            border: 3px solid #000;
+            border-bottom: 8px solid #000;
+            border-radius: 20px;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: 0.1s;
+        }
+
+        .topic-btn:nth-child(odd) { background-color: #98ff98; }
+        .topic-btn:nth-child(even) { background-color: #ffb3d9; }
+
+        .topic-btn:active {
+            transform: translateY(4px);
+            border-bottom-width: 4px;
+        }
+
+        .topic-icon {
+            font-size: 28px;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 12px;
+            border: 2px solid #000;
+        }
+
+        /* गेम / क्विज स्क्रीन */
+        .game-card {
+            background: white;
+            border: 4px solid #000;
+            border-bottom: 10px solid #000;
+            border-radius: 25px;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            display: none;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .opt-btn {
+            background: #e3f2fd;
+            border: 3px solid #000;
+            border-bottom: 6px solid #000;
+            border-radius: 15px;
+            padding: 14px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            transition: 0.1s;
+        }
+
+        .opt-btn:active {
+            transform: translateY(3px);
+            border-bottom-width: 3px;
+        }
+
+        .back-btn {
+            background: #ff5722;
+            color: white;
+            border: 3px solid #000;
+            border-bottom: 5px solid #000;
+            border-radius: 12px;
+            padding: 10px 18px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 12px;
+            align-self: flex-start;
+            display: none;
+        }
+
+        /* बॉटम रिजल्ट बार */
+        .bottom-bar {
+            width: 100%;
+            max-width: 500px;
+            position: fixed;
+            bottom: 0;
+            padding: 20px 0;
+            text-align: center;
+            display: none;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            border-top: 4px solid #000;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+        .success-bar { background-color: #81c784; color: #004d40; }
+        .wrong-bar { background-color: #e57373; color: #4a0000; }
+
+        .next-btn {
+            background: #fff;
+            color: #000;
+            border: 3px solid #000;
+            border-bottom: 6px solid #000;
+            border-radius: 15px;
+            padding: 10px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        .score-row {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .score-board { 
+            font-size: 18px; 
+            font-weight: bold; 
+            color: #fff; 
+            background: #000; 
+            padding: 5px 15px; 
+            border-radius: 20px; 
+        }
+
+        .edit-name-btn {
+            background: #ff2a6d;
+            color: white;
+            border: 2px solid #000;
+            border-radius: 15px;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* एनीमेशन लिप सिंक */
+        .talking { animation: mouthTalk 0.2s infinite alternate; }
+        @keyframes mouthTalk { 0% { height: 4px; } 100% { height: 18px; border-radius: 50%; } }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <h2>Free Tools</h2>
-    </div>
+    <header>🎒 बाल पाठशाला 🎒</header>
 
-    <div class="moving-container">
-        <div class="ads-india">Ads India</div>
-    </div>
-
-    <button class="follow-btn" onclick="startTransition('https://example.com', 'Connecting...')">Follow</button>
-
-    <div class="tools-grid">
-        <div class="tool-card" onclick="startTransition('procamera.html', 'Opening Camera...')">
-            <svg viewBox="0 0 24 24"><path d="M12 15.5c1.93 0 3.5-1.57 3.5-3.5s-1.57-3.5-3.5-3.5-3.5 1.57-3.5 3.5 1.57 3.5 3.5 3.5zM20 4h-3.17L15 2H9L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h4.05l1.83-2h4.24l1.83 2H20v12z"/></svg>
-            <span>Camera</span>
+    <div class="app-container">
+        
+        <!-- फर्स्ट टाइम नेम इनपुट स्क्रीन -->
+        <div class="welcome-screen" id="name-screen">
+            <h2>👋 हेलो प्यारे बच्चे!</h2>
+            <p>अपना सुंदर सा नाम नीचे लिखो ताकि अरुण सर आपको नाम से बुला सकें:</p>
+            <input type="text" id="user-name-input" placeholder="यहाँ अपना नाम लिखें..." maxlength="15">
+            <br>
+            <button onclick="saveNameAndStart()">चलो शुरू करें! 🚀</button>
         </div>
 
-        <div class="tool-card" onclick="startTransition('mic.html', 'Opening Recorder...')">
-            <svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
-            <span>Recording</span>
-        </div>
+        <!-- मुख्य गेमप्ले एरिया ग्रुप -->
+        <div id="main-gameplay-area" style="display:none; width:100%;">
+            <div class="score-row">
+                <button class="back-btn" id="back-button" onclick="showMainMenu()" style="margin-bottom:0;">back</button>
+                <div class="score-board" id="score-display">⭐: 0</div>
+                <button class="edit-name-btn" onclick="resetName()">✏️ नाम बदलें</button>
+            </div>
 
-        <div class="tool-card" onclick="startTransition('notes.html', 'Opening Notes...')">
-            <svg viewBox="0 0 24 24"><path d="M14.5 18h-9c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h9c.28 0 .5.22.5.5s-.22.5-.5.5zm4-4h-13c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h13c.28 0 .5.22.5.5s-.22.5-.5.5zm0-4h-13c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h13c.28 0 .5.22.5.5s-.22.5-.5.5zm0-4h-13c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h13c.28 0 .5.22.5.5s-.22.5-.5.5z"/></svg>
-            <span>Notes</span>
+            <div class="classroom-container">
+                <div class="smart-board" id="classroom-board">
+                    <div class="board-chalk-text" id="board-title">WELCOME CLASS</div>
+                    <div id="board-main-content">चलो बच्चों, आज कुछ नया और मज़ेदार सीखते हैं! 🎯</div>
+                </div>
+                
+                <div class="teacher-scene">
+                    <div class="avatar-wrapper">
+                        <div class="avatar">
+                            <div class="mouth" id="teacher-mouth"></div>
+                        </div>
+                        <div class="teaching-stick" id="teacher-stick">🪄</div>
+                    </div>
+                    <div class="speech-bubble" id="speech-text">हेलो बच्चों! मैं हूँ आपका अरुण सर। नीचे से कोई भी प्यारा सा टॉपिक चुनो और पढ़ना शुरू करो! 👇</div>
+                </div>
+            </div>
+
+            <div class="menu-grid" id="main-menu">
+                <button class="topic-btn" onclick="startTopic(1)">
+                    <span class="topic-icon">🅰️</span> <span>1. A SE Z (अल्फाбет्स)</span>
+                </button>
+                <button class="topic-btn" onclick="startTopic(2)">
+                    <span class="topic-icon">📖</span> <span>2. Word Meaning (शब्दार्थ)</span>
+                </button>
+                <button class="topic-btn" onclick="startTopic(3)">
+                    <span class="topic-icon">⏳</span> <span>3. Tense (समय चक्र)</span>
+                </button>
+                <button class="topic-btn" onclick="startTopic(4)">
+                    <span class="topic-icon">📝</span> <span>4. वाक्य प्रयोग (Sentence)</span>
+                </button>
+                <button class="topic-btn" onclick="startTopic(5)">
+                    <span class="topic-icon">🗣️</span> <span>5. Direct Indirect Speech</span>
+                </button>
+                <button class="topic-btn" onclick="startTopic(6)">
+                    <span class="topic-icon">🇮🇳</span> <span>6. हिंदी से अंग्रेजी बनाना</span>
+                </button>
+                <button class="topic-btn" onclick="startTopic(7)">
+                    <span class="topic-icon">🇬🇧</span> <span>7. English से हिंदी अनुवाद</span>
+                </button>
+                <button class="topic-btn" onclick="startTopic(8)">
+                    <span class="topic-icon">🎯</span> <span>8. मज़ेदार टेस्ट (खेलेगा इंडिया!)</span>
+                </button>
+            </div>
+
+            <div class="game-card" id="game-screen">
+                <div class="options-grid" id="options-box"></div>
+            </div>
         </div>
     </div>
 
-    <div class="welcome-text">Welcome all of you to our Ads India.</div>
-
-    <div class="disclaimer">
-        This website has been created for your convenience. If you misuse this website then the developer is not responsible for it.
-    </div>
-
-    <div id="overlay" class="overlay">
-        <div class="loader"></div>
-        <div id="overlay-text" class="overlay-text">Please wait...</div>
+    <div class="bottom-bar" id="result-bar">
+        <div style="font-size: 20px; font-weight: bold;" id="result-message">सही जवाब!</div>
+        <button class="next-btn" onclick="handleNext()">अगला सवाल ➡️</button>
     </div>
 
     <script>
-        function startTransition(url, message) {
-            const overlay = document.getElementById('overlay');
-            const overlayText = document.getElementById('overlay-text');
-            
-            overlayText.innerText = message;
-            overlay.style.display = 'flex';
+        const megaDatabase = {
+           1: [
+        { q: "A for क्या होता है बच्चों?", ans: "Apple", opts: ["Ball", "Cat", "Apple", "Dog"], info: "A for Apple (सेब)! सेब खाने से ताकत मिलती है।" },
+        { q: "B for क्या होता है?", ans: "Ball", opts: ["Apple", "Ball", "Elephant", "Fox"], info: "B for Ball (गेँद)! जिससे हम क्रिकेट खेलते हैं।" },
+        { q: "C for क्या होता है?", ans: "Cat", opts: ["Hat", "Cat", "Ice", "Jug"], info: "C for Cat (बिल्ली)! म्याऊँ म्याऊँ करती है।" },
+        { q: "D for क्या होता है?", ans: "Dog", opts: ["Dog", "Lion", "Monkey", "Nest"], info: "D for Dog (कुत्ता)! घर की रखवाली करता है।" },
+        { q: "E for क्या होता है?", ans: "Elephant", opts: ["Parrot", "Queen", "Elephant", "Rose"], info: "E for Elephant (हाथी)! बहुत विशाल पशु है।" },
+        { q: "F for क्या होता है?", ans: "Fish", opts: ["Sun", "Tiger", "Umbrella", "Fish"], info: "F for Fish (मछلی)! मछली जल की रानी है।" },
+        { q: "G for क्या होता है?", ans: "Grapes", opts: ["Grapes", "Watch", "Yacht", "Zebra"], info: "Grapes माने अंगूर! खट्टे-मीठे अंगूर।" },
+        { q: "H for क्या होता है?", ans: "Hen", opts: ["Kite", "Hen", "Lemon", "Mango"], info: "H for Hen (मुर्गी)! कुकड़ूकूँ बोलती है।" },
+        { q: "I for क्या होता है?", ans: "Ice Cream", opts: ["Owl", "Pen", "Ice Cream", "Queen"], info: "Ice Cream सबको ठंडी-ठंडी अच्छी लगती है!" },
+        { q: "J for क्या होता है?", ans: "Jug", opts: ["Jug", "Rat", "Ship", "Van"], info: "J for Jug (जग)! इसमें हम पानी रखते हैं।" },
+        { q: "K for क्या होता है?", ans: "Kite", opts: ["Ox", "Kite", "Pot", "Star"], info: "Kite माने पतंग! आसमान में ऊँची उड़ती है।" },
+        { q: "L for क्या होता है?", ans: "Lion", opts: ["Lion", "Tree", "Wolf", "Xylophone"], info: "L for Lion (शेर)! यह जंगल का राजा होता है।" },
+        { q: "M for क्या होता है?", ans: "Mango", opts: ["Nut", "Mango", "Owl", "Pig"], info: "Mango माने आम! फलों का राजा है।" },
+        { q: "N for क्या होता है?", ans: "Nest", opts: ["Queen", "Nest", "Rose", "Sun"], info: "Nest माने घोंसला! चिड़िया का प्यारा घर।" },
+        { q: "O for क्या होता है?", ans: "Orange", opts: ["Orange", "Train", "Umpire", "Violin"], info: "Orange माने संतरा! खट्टा-मीठा रसीला फल।" },
+        { q: "P for क्या होता है?", ans: "Parrot", opts: ["Yak", "Zebra", "Parrot", "Apple"], info: "Parrot माने तोता! हरी मिर्च मजे से खाता है।" },
+        { q: "Q for क्या होता है?", ans: "Queen", opts: ["Queen", "Boy", "Cat", "Doll"], info: "Queen माने रानी! राजा की रानी।" },
+        { q: "R for क्या होता है?", ans: "Rose", opts: ["Egg", "Fish", "Goat", "Rose"], info: "Rose माने गुलाब! बहुत सुंदर फूल होता है।" },
+        { q: "S for क्या होता है?", ans: "Sun", opts: ["Sun", "Ice", "Jar", "Key"], info: "Sun माने सूरज! जो सवेरे चमकता है।" },
+        { q: "T for क्या होता है?", ans: "Tiger", opts: ["Lamp", "Moon", "Net", "Tiger"], info: "T for Tiger (बाघ)! हमारा राष्ट्रीय पशु।" }
+    ],
+    2: [
+        { q: "नमक (Salt)", ans: "Salt", opts: ["Sugar", "Salt", "Water", "Rice"], info: "नमक को Salt कहते हैं। खाने में स्वाद लाता है।" },
+        { q: "दोस्त (Friend)", ans: "Friend", opts: ["Enemy", "Teacher", "Friend", "Brother"], info: "दोस्त को Friend कहते हैं।" },
+        { q: "खुश (Happy)", ans: "Happy", opts: ["Sad", "Angry", "Happy", "Lazy"], info: "खुश होने को Happy कहते हैं। हमेशा मुस्कुराओ!" },
+        { q: "ठंडा (Cold)", ans: "Cold", opts: ["Hot", "Cold", "Dry", "Wet"], info: "ठंडे को Cold कहते हैं, जैसे आइसक्रीम।" },
+        { q: "सुबह (Morning)", ans: "Morning", opts: ["Night", "Evening", "Morning", "Afternoon"], info: "सुबह को Morning बोलते हैं। गुड मॉर्निंग!" },
+        { q: "सूरजमुखी (Sunflower)", ans: "Sunflower", opts: ["Rose", "Lotus", "Sunflower", "Lily"], info: "इसे Sunflower कहते हैं, इसका मुख सूरज की तरफ होता है।" },
+        { q: "आसमान (Sky)", ans: "Sky", opts: ["Earth", "Sky", "Cloud", "Star"], info: "आसमान को Sky बोलते हैं, जहाँ बादल होते हैं।" },
+        { q: "प्यारा (Cute)", ans: "Cute", opts: ["Ugly", "Bad", "Cute", "Hard"], info: "प्यारे को Cute कहते हैं, जैसे छोटे बच्चे।" },
+        { q: "साफ़ (Clean)", ans: "Clean", opts: ["Dirty", "Clean", "Old", "New"], info: "साफ़ रखने को Clean कहते हैं। साफ़-सफाई बहुत ज़रूरी है।" },
+        { q: "खेलना (Play)", ans: "Play", opts: ["Sleep", "Read", "Play", "Eat"], info: "खेलने को Play कहते हैं।" },
+        { q: "सोना (Sleep)", ans: "Sleep", opts: ["Run", "Sleep", "Walk", "Jump"], info: "सोने को Sleep कहते हैं। समय पर सोना चाहिए।" },
+        { q: "दौड़ना (Run)", ans: "Run", opts: ["Sit", "Stand", "Run", "Fly"], info: "दौड़ने को Run कहते हैं।" },
+        { q: "पेड़ (Tree)", ans: "Tree", opts: ["Plant", "Tree", "Flower", "Grass"], info: "पेड़ को Tree कहते हैं, यह हमें ऑक्सीजन देता है।" },
+        { q: "लाल (Red)", ans: "Red", opts: ["Blue", "Green", "Red", "Yellow"], info: "लाल रंग को Red कहते हैं।" },
+        { q: "छोटा (Small)", ans: "Small", opts: ["Big", "Small", "Tall", "Short"], info: "छोटे को Small कहते हैं।" },
+        { q: "बड़ा (Big)", ans: "Big", opts: ["Small", "Big", "Thin", "Fat"], info: "बड़े आकार को Big कहते हैं।" },
+        { q: "पक्षी (Bird)", ans: "Bird", opts: ["Animal", "Bird", "Fish", "Insect"], info: "पक्षी को Bird कहते हैं, जो हवा में उड़ते हैं।" },
+        { q: "दूध (Milk)", ans: "Milk", opts: ["Water", "Tea", "Milk", "Coffee"], info: "दूध को Milk कहते हैं।" },
+        { q: "अध्यापक (Teacher)", ans: "Teacher", opts: ["Doctor", "Driver", "Teacher", "Farmer"], info: "टीचर को अध्यापक कहते हैं, जैसे आपके अरुण सर।" },
+        { q: "बगीचा (Garden)", ans: "Garden", opts: ["House", "Road", "Garden", "School"], info: "बगीचे को Garden कहते हैं जहाँ फूल खिलते हैं।" }
+    ],
+    3: [
+        { q: "वह खेलता है (Present Tense)", ans: "He plays", opts: ["He played", "He plays", "He will play", "He is playing"], info: "ता है, ती है आए तो Present Simple होता है। यहाँ plays आएगा।" },
+        { q: "मैंने खाया (Past Tense)", ans: "I ate", opts: ["I eat", "I ate", "I will eat", "I am eating"], info: "यह Past Tense है। Eat की Second Form 'Ate' लगेगी।" },
+        { q: "राम स्कूल जाएगा (Future Tense)", ans: "Ram will go to school", opts: ["Ram goes to school", "Ram went to school", "Ram will go to school", "Ram is going to school"], info: "गा, गे, गी आए तो Future में Will का प्रयोग करते हैं।" },
+        { q: "मैं पढ़ रहा हूँ (Continuous)", ans: "I am reading", opts: ["I read", "I am reading", "I was reading", "I will read"], info: "काम चल रहा है, इसलिए am + ing (Reading) लगेगा।" },
+        { q: "वे नाच रहे थे", ans: "They were dancing", opts: ["They are dancing", "They were dancing", "They will dance", "They danced"], info: "था, थे, थी और काम जारी हो तो Was/Were के साथ ing लगाते हैं।" },
+        { q: "वह सो चुकी है", ans: "She has slept", opts: ["She sleeps", "She has slept", "She slept", "She will sleep"], info: "काम पूरा हो चुका है (Present Perfect), इसलिए Has + 3rd form लगेगी।" },
+        { q: "सूरज उगता है", ans: "The sun rises", opts: ["The sun rise", "The sun rises", "The sun rose", "The sun is rising"], info: "यूनिवर्सल सच है, Simple Present में Singular के साथ 'rises' लगेगा।" },
+        { q: "हम क्रिकेट खेलेंगे", ans: "We will play cricket", opts: ["We play cricket", "We played cricket", "We will play cricket", "We are playing cricket"], info: "भविष्य की बात है, इसलिए We will play cricket सही है।" },
+        { q: "पापा आ रहे हैं", ans: "Father is coming", opts: ["Father comes", "Father is coming", "Father was coming", "Father will come"], info: "अभी आ रहे हैं, इसलिए is coming लगेगा।" },
+        { q: "बिल्ली दूध पी चुकी है", ans: "The cat has drunk milk", opts: ["The cat drinks milk", "The cat has drunk milk", "The cat drank milk", "The cat is drinking milk"], info: "काम हो चुका है, Has + Drunk (Drink की 3rd Form) आएगी।" },
+        { q: "तुम लिख रहे हो", ans: "You are writing", opts: ["You write", "You are writing", "You were writing", "You wrote"], info: "You के साथ 'are' और Continuous में 'writing' आता है।" },
+        { q: "बारिश हो रही थी", ans: "It was raining", opts: ["It is raining", "It was raining", "It will rain", "It rained"], info: "पास्ट में काम जारी था, इसलिए It was raining होगा।" },
+        { q: "मैं कल आऊँगा", ans: "I will come tomorrow", opts: ["I come tomorrow", "I came yesterday", "I will come tomorrow", "I am coming"], info: "Future tense के लिए 'will come' और कल के लिए 'tomorrow'।" },
+        { q: "पक्षी उड़ते हैं", ans: "Birds fly", opts: ["Birds fly", "Birds flies", "Birds flying", "Birds flew"], info: "Plural ( Birds) के साथ सिर्फ 'fly' का प्रयोग होता है।" },
+        { q: "उसने झूठ बोला", ans: "He lied", opts: ["He lies", "He lied", "He is lying", "He will lie"], info: "बीता हुआ समय (Past Tense), Lie की 2nd form 'Lied' होगी।" },
+        { q: "माँ खाना पकाती है", ans: "Mother cooks food", opts: ["Mother cook food", "Mother cooks food", "Mother is cooking food", "Mother cooked food"], info: "Singular सब्जेक्ट के साथ क्रिया में s/es (cooks) लगता है।" },
+        { q: "हम मैच जीत गए", ans: "We won the match", opts: ["We win the match", "We won the match", "We will win the match", "We are winning"], info: "Past Simple में Win की 2nd form 'Won' लगेगी।" },
+        { q: "क्या तुम जानते हो?", ans: "Do you know?", opts: ["You know?", "Do you know?", "Are you know?", "Did you know?"], info: "Present Interrogative में Do/Does पहले आता है।" },
+        { q: "वह रो रहा है", ans: "He is crying", opts: ["He cries", "He was crying", "He is crying", "He will cry"], info: "प्रेजेंट कंटीन्यूअस है, इसलिए He is crying होगा।" },
+        { q: "गाड़ी चली गई", ans: "The train left", opts: ["The train leaves", "The train left", "The train is leaving", "The train will leave"], info: "ट्रेन जा चुकी है, Past Form 'left' का प्रयोग होगा।" }
+    ],
+    4: [
+        { q: "Use 'This' correctly:", ans: "This is a pen", opts: ["This are pens", "This is a pen", "This look pen", "This am pen"], info: "'This' का प्रयोग पास की एक वस्तु के लिए किया जाता है।" },
+        { q: "Use 'That' correctly:", ans: "That is a star", opts: ["That are stars", "That is a star", "That am star", "That look star"], info: "'That' का प्रयोग दूर की एक वस्तु के लिए होता है।" },
+        { q: "Use 'These' correctly:", ans: "These are my toys", opts: ["These is my toy", "These are my toys", "These am toy", "These was toy"], info: "'These' पास की एक से ज़्यादा चीज़ों (Plural) के लिए आता है।" },
+        { q: "Use 'Those' correctly:", ans: "Those are birds", opts: ["Those is bird", "Those are birds", "Those am bird", "Those was bird"], info: "'Those' दूर की एक से ज़्यादा चीज़ों के लिए आता है।" },
+        { q: "Use 'In' correctly:", ans: "The milk is in the bottle", opts: ["The milk is on the bottle", "The milk is in the bottle", "The milk is under the bottle", "The milk is to the bottle"], info: "अंदर की स्थिति बताने के लिए 'In' का प्रयोग होता है।" },
+        { q: "Use 'On' correctly:", ans: "The book is on the table", opts: ["The book is in the table", "The book is on the table", "The book is under the table", "The book is at the table"], info: "सतह के ऊपर होने पर 'On' का प्रयोग किया जाता है।" },
+        { q: "Use 'Under' correctly:", ans: "The dog is under the bed", opts: ["The dog is on the bed", "The dog is under the bed", "The dog is in the bed", "The dog is over the bed"], info: "नीचे छिपे होने की स्थिति में 'Under' लगाते हैं।" },
+        { q: "Use 'And' correctly:", ans: "Rahul and Rohit are brothers", opts: ["Rahul but Rohit are brothers", "Rahul and Rohit are brothers", "Rahul or Rohit are brothers", "Rahul with Rohit are brothers"], info: "दो शब्दों या नामों को जोड़ने के लिए 'And' का उपयोग होता है।" },
+        { q: "Use 'But' correctly:", ans: "He is small but strong", opts: ["He is small and strong", "He is small but strong", "He is small or strong", "He is small so strong"], info: "दो अलग स्वभाव वाली बातों को दर्शाने के लिए 'But' (लेकिन) लगाते हैं।" },
+        { q: "Use 'Can' correctly:", ans: "I can run fast", opts: ["I can running fast", "I can run fast", "I can runs fast", "I cannot running fast"], info: "'Can' का प्रयोग क्षमता (Ability) दिखाने के लिए होता है और 1st form लगती है।" },
+        { q: "Use 'With' correctly:", ans: "I write with a pen", opts: ["I write in a pen", "I write on a pen", "I write with a pen", "I write by a pen"], info: "किसी साधन से काम करने पर 'With' लगाते हैं।" },
+        { q: "Use 'Love' correctly:", ans: "I love my family", opts: ["I love my family", "I loving my family", "I loves my family", "I am love my family"], info: "अपनी भावना व्यक्त करने के लिए Simple वाक्य: I love my family।" },
+        { q: "Use 'Daily' correctly:", ans: "I brush my teeth daily", opts: ["I brush my teeth daily", "I daily brushing teeth", "I brushed teeth daily", "I daily brush teeth"], info: "'Daily' वाक्य के अंत में या वर्ब से पहले आदत बताने के लिए आता है।" },
+        { q: "Use 'Beautiful' correctly:", ans: "This flower is beautiful", opts: ["This flower is beautifully", "This flower is beautiful", "This beautiful flower is", "This am beautiful flower"], info: "तारीफ करने के लिए Adjective 'Beautiful' का सही उपयोग।" },
+        { q: "Use 'Always' correctly:", ans: "Always speak the truth", opts: ["Always speak the truth", "Speak always truth", "The truth speak always", "Always speaking truth"], info: "हमेशा अच्छी आदत के लिए 'Always' को वाक्य की शुरुआत में रख सकते हैं।" },
+        { q: "Use 'Like' correctly:", ans: "I like sweet fruits", opts: ["I am like sweet fruits", "I like sweet fruits", "I liking sweet fruits", "I likes sweet fruits"], info: "पसंद बताने के लिए 'I like...' सबसे बेस्ट है।" },
+        { q: "Use 'Because' correctly:", ans: "I am happy because it is my birthday", opts: ["I am happy but it is my birthday", "I am happy because it is my birthday", "I am happy and it is my birthday", "I am happy or it is my birthday"], info: "कारण बताने के लिए 'Because' (क्योंकि) का प्रयोग किया जाता है।" },
+        { q: "Use 'Everywhere' correctly:", ans: "God is everywhere", opts: ["God is everywhere", "Everywhere God are", "God everywhere is", "God am everywhere"], info: "सब जगह के अर्थ में 'Everywhere' का सटीक प्रयोग।" },
+        { q: "Use 'Help' correctly:", ans: "We should help poor people", opts: ["We should helping poor", "We should help poor people", "We helps poor people", "We should to help poor"], info: "सलाह के साथ Should + Help की फर्स्ट फॉर्म लगती है।" },
+        { q: "Use 'Welcome' correctly:", ans: "You are welcome", opts: ["You welcome", "You are welcome", "Your welcome", "You am welcome"], info: "धन्यवाद के बदले शिष्टाचार के लिए 'You are welcome' बोला जाता है।" }
+    ],
+    5: [
+        { q: "Ram says, 'I am well.'", ans: "Ram says that he is well", opts: ["Ram says that I am well", "Ram says that he is well", "Ram said that he was well", "Ram tells that he is well"], info: "Reporting verb Present में हो तो अंदर का Tense नहीं बदलता। 'I' बदलकर 'he' बनेगा।" },
+        { q: "He said, 'I am happy.'", ans: "He said that he was happy", opts: ["He said that he is happy", "He said that he was happy", "He said that I was happy", "He told that he was happy"], info: "Said के बाद 'that' लगेगा, और Past होने के कारण 'am' बदलकर 'was' हो जाएगा।" },
+        { q: "She said to me, 'You are late.'", ans: "She told me that I was late", opts: ["She said me that I was late", "She told me that I was late", "She told me that you were late", "She says that I was late"], info: "Said to बदलकर 'told' हो जाता है और 'You' ऑब्जेक्ट (me) के अनुसार 'I' बन जाएगा।" },
+        { q: "He said, 'I can run.'", ans: "He said that he could run", opts: ["He said that he can run", "He said that he could run", "He told that he can run", "He said that I could run"], info: "Indirect Speech में 'can' को बदलकर 'could' कर दिया जाता है।" },
+        { q: "The teacher said, 'The sun is hot.'", ans: "The teacher said that the sun is hot", opts: ["The teacher said that the sun was hot", "The teacher said that the sun is hot", "The teacher told that sun is hot", "The teacher says that sun is hot"], info: "सत्य वाक्यों (Universal Truth) का टेंस कभी नहीं बदलता, भले ही बाहर 'said' हो।" },
+        { q: "Sita said, 'I will go.'", ans: "Sita said that she would go", opts: ["Sita said that she will go", "Sita said that she would go", "Sita told that she will go", "Sita said that I would go"], info: "Indirect करते समय 'will' को 'would' में बदल दिया जाता है।" },
+        { q: "They said, 'We are playing.'", ans: "They said that they were playing", opts: ["They said that we were playing", "They said that they were playing", "They told that they are playing", "They said that they are playing"], info: "'We' बदलकर 'they' हो जाएगा और 'are' बदलकर 'were' हो जाएगा।" },
+        { q: "He said to her, 'I like you.'", ans: "He told her that he liked her", opts: ["He told her that he liked her", "He said her that he liked her", "He told her that I liked you", "He tells her that he liked her"], info: "Present Simple बदलकर Past Simple (liked) हो जाता है।" },
+        { q: "Mohan said, 'I have a pen.'", ans: "Mohan said that he had a pen", opts: ["Mohan said that he has a pen", "Mohan said that he had a pen", "Mohan told that he had a pen", "Mohan said that I had a pen"], info: "'has/have' को बदलकर 'had' कर दिया जाता है।" },
+        { q: "She said, 'I went to school.'", ans: "She said that she had gone to school", opts: ["She said that she went to school", "She said that she had gone to school", "She said that she has gone to school", "She told that she went to school"], info: "Past Simple (went) बदलकर Past Perfect (had gone) हो जाता है।" },
+        { q: "He says, 'I will come.'", ans: "He says that he will come", opts: ["He says that he would come", "He says that he will come", "He said that he would come", "He tells that he would come"], info: "बाहर 'says' है, इसलिए अंदर का 'will' नहीं बदलेगा।" },
+        { q: "Aman said, 'I am singing.'", ans: "Aman said that he was singing", opts: ["Aman said that he is singing", "Aman said that he was singing", "Aman told that he was singing", "Aman says that he was singing"], info: "Present Continuous बदलकर Past Continuous (was singing) बन जाता है।" },
+        { q: "She said, 'My dad is a doctor.'", ans: "She said that her dad was a doctor", opts: ["She said that my dad was a doctor", "She said that her dad was a doctor", "She said that her dad is a doctor", "She told that her dad was a doctor"], info: "'My' बदलकर लड़की के हिसाब से 'her' हो जाएगा और 'is' का 'was' होगा।" },
+        { q: "He said, 'I do not know.'", ans: "He said that he does not know", opts: ["He said that he did not know", "He told that he do not know", "He said that he did not knew"], info: "'do not' बदलकर 'did not' हो जाता है और Verb की 1st form ही रहती है।" },
+        { q: "They said, 'We won.'", ans: "They said that they had won", opts: ["They said that they won", "They said that they had won", "They told that they won", "They said that we had won"], info: "Past Simple 'won' बदलकर Past Perfect 'had won' में चेंज होगा।" },
+        { q: "He said, 'Honesty is the best policy.'", ans: "He said that honesty is the best policy", opts: ["He said that honesty was the best policy", "He said that honesty is the best policy", "He told that honesty is the best policy", "He says that honesty is the best policy"], info: "कहावतें (Proverbs) हमेशा वैसी की वैसी ही रहती हैं, टेंस नहीं बदलता।" },
+        { q: "Ravi said to me, 'I am your friend.'", ans: "Ravi told me that he was my friend", opts: ["Ravi told me that he was my friend", "Ravi said me that he was my friend", "Ravi told me that I was your friend", "Ravi tells me that he was my friend"], info: "'your' बदलकर ऑब्जेक्ट (me) के अनुसार 'my' बन जाएगा।" },
+        { q: "She said, 'I may come.'", ans: "She said that she might come", opts: ["She said that she may come", "She said that she might come", "She told that she might come", "She says that she might come"], info: "Indirect Speech में 'may' को 'might' में बदला जाता है।" },
+        { q: "The boy said, 'I run daily.'", ans: "The boy said that he ran daily", opts: ["The boy said that he runs daily", "The boy said that he ran daily", "The boy told that he ran daily", "The boy said that I ran daily"], info: "Present Simple 'run' बदलकर Past Simple 'ran' हो जाता है।" },
+        { q: "He said, 'This is mine.'", ans: "He said that that was his", opts: ["He said that this was his", "He said that that was his", "He said that that is mine", "He told that that was his"], info: "पास की चीज़ 'This' को दूर की चीज़ 'That' में बदल दिया जाता है।" }
+    ],
+    6: [
+        { q: "मुझे आम पसंद है।", ans: "I like mangoes", opts: ["I eat mangoes", "I like mangoes", "I have mangoes", "Mangoes like me"], info: "पसंद होने के लिए 'like' शब्द का प्रयोग किया जाता है।" },
+        { q: "वह मेरा भाई है।", ans: "He is my brother", opts: ["He is my brother", "She is my brother", "He my brother", "That my brother"], info: "लड़के के लिए 'He' और भाई के लिए 'brother' का प्रयोग होता है।" },
+        { q: "तुम सुंदर हो।", ans: "You are beautiful", opts: ["You is beautiful", "You am beautiful", "You are beautiful", "You beautiful"], info: "You के साथ हमेशा 'are' लगाया जाता है।" },
+        { q: "यह एक बिल्ली है।", ans: "This is a cat", opts: ["That is a cat", "This is a cat", "This am a cat", "These are cat"], info: "यह के लिए 'This' और पास की एक चीज़ के लिए 'is a' लगता है।" },
+        { q: "हम खुश हैं।", ans: "We are happy", opts: ["I am happy", "We is happy", "We are happy", "They are happy"], info: "हम को 'We' कहते हैं और इसके साथ 'are' लगता है।" },
+        { q: "क्या तुम तैयार हो?", ans: "Are you ready?", opts: ["You are ready?", "Are you ready?", "Is you ready?", "Am you ready?"], info: "सवाल पूछने के लिए 'Are' को आगे ले आते हैं: Are you ready?" },
+        { q: "मेरे पास एक खिलौना है।", ans: "I have a toy", opts: ["I has a toy", "I have a toy", "I am a toy", "My is a toy"], info: "पास में कुछ होने पर I के साथ 'have' का प्रयोग करते हैं।" },
+        { q: "वहाँ जाओ।", ans: "Go there", opts: ["Come here", "Go there", "Sit here", "Run there"], info: "आदेश देने वाले वाक्य में वर्ब पहले आती है। वहाँ जाओ = Go there।" },
+        { q: "यहाँ आओ।", ans: "Come here", opts: ["Go there", "Come here", "Sit down", "Stand up"], info: "यहाँ आओ को इंग्लिश में 'Come here' कहते हैं।" },
+        { q: "पानी लाओ।", ans: "Bring water", opts: ["Give water", "Bring water", "Drink water", "Take water"], info: "लाने को 'Bring' कहते हैं, इसलिए Bring water सही है।" },
+        { q: "आज बहुत ठंड है।", ans: "It is very cold today", opts: ["Today is very hot", "It is very cold today", "It was cold today", "Today am cold"], info: "मौसम वाले वाक्यों की शुरुआत 'It' से की जाती है।" },
+        { q: "वह रो रही है।", ans: "She is crying", opts: ["He is crying", "She is crying", "She was crying", "She cries"], info: "लड़की के लिए 'She' और रोने के लिए 'crying'।" },
+        { q: "मुझे जाने दो।", ans: "Let me go", opts: ["I want go", "Let me go", "Go me", "Let I go"], info: "कोई काम करने देने के अनुरोध के लिए 'Let me...' का प्रयोग करते हैं।" },
+        { q: "तुम बहुत अच्छे हो।", ans: "You are very good", opts: ["You is very good", "You are very good", "You am very good", "Your are good"], info: "अच्छे को 'Good' और बहुत को 'Very' बोलते हैं।" },
+        { q: "यह मेरा घर है।", ans: "This is my house", opts: ["That is my house", "This is my house", "This my house is", "These are my house"], info: "यह मेरा घर है = This is my house।" },
+        { q: "चलो खेलते हैं।", ans: "Let's play", opts: ["We play", "Let's play", "Go to play", "Let's playing"], info: "साथ मिलकर कुछ शुरू करने के लिए 'Let's' (Let us) लगाते हैं।" },
+        { q: "मुझे दूध चाहिए।", ans: "I want milk", opts: ["I like milk", "I want milk", "I drink milk", "Milk want me"], info: "चाहिए या इच्छा व्यक्त करने के लिए 'want' का उपयोग करते हैं।" },
+        { q: "आसमान नीला है।", ans: "The sky is blue", opts: ["The sky is green", "The sky is blue", "Sky blue is", "The sky was blue"], info: "आसमान नीला है = The sky is blue।" },
+        { q: "चिड़िया उड़ रही है।", ans: "The bird is flying", opts: ["The bird is flying", "The bird was flying", "The bird flies", "Birds are flying"], info: "एक चिड़िया है, इसलिए is flying आएगा।" },
+        { q: "मुझे माफ़ कर दो।", ans: "I am sorry", opts: ["Thank you", "I am sorry", "Excuse me", "Welcome"], info: "गलती मानने या माफ़ी के लिए 'I am sorry' बोला जाता है।" }
+    ],
+    7: [
+        { q: "Translate: 'Thank you'", ans: "धन्यवाद", opts: ["कृपया", "धन्यवाद", "माफ़ करें", "नमस्ते"], info: "आभार मानने के लिए 'Thank you' यानी 'धन्यवाद' कहते हैं।" },
+        { q: "Translate: 'I am a student'", ans: "मैं एक छात्र हूँ", opts: ["मैं एक शिक्षक हूँ", "मैं एक छात्र हूँ", "तुम छात्र हो", "वह छात्र है"], info: "Student को छात्र या विद्यार्थी कहा जाता है।" },
+        { q: "Translate: 'Listen to me'", ans: "मेरी बात सुनो", opts: ["वहाँ देखो", "यहाँ आओ", "मेरी बात सुनो", "चुप रहो"], info: "Listen to me का हिंदी अर्थ 'मेरी बात सुनो' होता है।" },
+        { q: "Translate: 'Sit down'", ans: "बैठ जाओ", opts: ["खड़े हो जाओ", "बैठ जाओ", "दौड़ो", "लिखो"], info: "Sit down का मतलब होता है 'बैठ जाओ'।" },
+        { q: "Translate: 'Stand up'", ans: "खड़े हो जाओ", opts: ["बैठ जाओ", "खड़े हो जाओ", "चलो", "भागो"], info: "Stand up का मतलब होता है 'खड़े हो जाओ'।" },
+        { q: "Translate: 'Do your homework'", ans: "अपना गृहकार्य करो", opts: ["खाना खाओ", "खेलने जाओ", "अपना गृहकार्य करो", "सो जाओ"], info: "Homework को हिंदी में गृहकार्य कहा जाता है।" },
+        { q: "Translate: 'Open the door'", ans: "दरवाजा खोलो", opts: ["दरवाजा बंद करो", "दरवाजा खोलो", "खिड़की खोलो", "बाहर जाओ"], info: "Open का मतलब खोलना और Door का मतलब दरवाजा होता है।" },
+        { q: "Translate: 'Close the window'", ans: "खिड़की बंद करो", opts: ["खिड़की खोलो", "खिड़की बंद करो", "दरवाजा बंद करो", "परदा हटाओ"], info: "Close का मतलब बंद करना और Window का मतलब खिड़की होता है।" },
+        { q: "Translate: 'Speak slowly'", ans: "धीरे बोलो", opts: ["तेज़ बोलो", "धीरे बोलो", "मत बोलो", "सच बोलो"], info: "Slowly का मतलब होता है धीरे। धीरे बोलो = Speak slowly।" },
+        { q: "Translate: 'I am hungry'", ans: "मुझे भूख लगी है", opts: ["मुझे प्यास लगी है", "मुझे भूख लगी है", "मैं बीमार हूँ", "मैं खुश हूँ"], info: "Hungry का मतलब भूखा होना होता है।" },
+        { q: "Translate: 'Drink water'", ans: "पानी पीयो", opts: ["पानी लाओ", "पानी पीयो", "दूध पीयो", "खाना खाओ"], info: "Drink water का मतलब पानी पीना होता है।" },
+        { q: "Translate: 'Wash your hands'", ans: "अपने हाथ धोओ", opts: ["अपने पैर धोओ", "अपने हाथ धोओ", "मुँह साफ़ करो", "नहा लो"], info: "Wash your hands का मतलब 'अपने हाथ धोओ' होता है।" },
+        { q: "Translate: 'This is my ball'", ans: "यह मेरी गेंद है", opts: ["वह मेरी गेंद है", "यह मेरी गेंद है", "यह मेरा बल्ला है", "मेरी गेंद कहाँ है"], info: "This is my ball = यह मेरी गेंद है।" },
+        { q: "Translate: 'Come tomorrow'", ans: "कल आना", opts: ["आज आना", "कल आना", "अभी आओ", "मत आना"], info: "Tomorrow का मतलब आने वाला कल होता है।" },
+        { q: "Translate: 'Where is your bag?'", ans: "तुम्हारा बस्ता कहाँ है?", opts: ["तुम्हारा बस्ता कहाँ है?", "यह किसका बस्ता है?", "मेरा बस्ता लाओ", "तुम्हारा नाम क्या है?"], info: "Where का मतलब कहाँ और Bag का मतलब बस्ता होता है।" },
+        { q: "Translate: 'Don't cry'", ans: "रोओ मत", opts: ["हँसो मत", "रोओ मत", "भागो मत", "शोर मत करो"], info: "Don't cry का अर्थ 'रोओ मत' या 'रोना बंद करो' होता है।" },
+        { q: "Translate: 'It is raining'", ans: "बारिश हो रही है", opts: ["हवा चल रही है", "धूप निकली है", "बारिश हो रही है", "बर्फ गिर रही है"], info: "Raining का अर्थ बारिश होना होता है।" },
+        { q: "Translate: 'I forgot'", ans: "मैं भूल गया", opts: ["मुझे याद है", "मैं भूल गया", "मैं समझ गया", "मैंने देखा"], info: "Forgot का मतलब होता है भूल जाना।" },
+        { q: "Translate: 'Keep quiet'", ans: "शांत रहो", opts: ["शांत रहो", "बात करो", "खड़े रहो", "बाहर जाओ"], info: "Keep quiet का मतलब 'शांत रहो' या 'चुप रहो' होता है।" },
+        { q: "Translate: 'We are friends'", ans: "हम दोस्त हैं", opts: ["वे दोस्त हैं", "हम दोस्त हैं", "तुम मेरे दोस्त हो", "हम भाई हैं"], info: "We are friends = हम दोस्त हैं।" }
+    ],
+    8: [
+        { q: "Identify alphabetical sequence: A, B, C, __", ans: "D", opts: ["E", "F", "D", "Z"], info: "C के ठीक बाद D आता है।" },
+        { q: "What is the meaning of 'Sugar'?", ans: "चीनी", opts: ["नमक", "चीनी", "पानी", "दूध"], info: "Sugar को हिंदी में चीनी या शक्कर कहते हैं।" },
+        { q: "Which one is Past Tense?", ans: "I wrote a letter", opts: ["I write a letter", "I wrote a letter", "I will write a letter", "I am writing"], info: "Wrote (Write की 2nd form) पास्ट टेंस की पहचान है।" },
+        { q: "Correct sentence: '___ is a bright star.'", ans: "That", opts: ["These", "Those", "That", "They"], info: "एकवचन दूर की वस्तु के लिए 'That' बिल्कुल सही है।" },
+        { q: "Indirect of: She said, 'I eat.'", ans: "She said that she ate", opts: ["She said that she eats", "She said that she ate", "She told she eat", "She says she ate"], info: "Said होने पर 'eat' बदलकर 2nd form 'ate' बन जाएगा।" },
+        { q: "Translate to English: 'वह नाच रहा है।'", ans: "He is dancing", opts: ["He danced", "He is dancing", "She is dancing", "He will dance"], info: "लड़के के लिए He और रहा है के लिए 'is dancing' आएगा।" },
+        { q: "Translate to Hindi: 'Be careful'", ans: "सावधान रहो", opts: ["भाग जाओ", "सावधान रहो", "चुप रहो", "खुश रहो"], info: "Be careful का अर्थ 'सावधान रहो' या 'ध्यान से' होता है।" },
+        { q: "Choose the correct spelling:", ans: "Beautiful", opts: ["Beatiful", "Beautiful", "Beautifull", "Buitiful"], info: "B-E-A-U-T-I-F-U-L एकदम सही स्पेलिंग है।" },
+        { q: "Opposite of 'Hot' is:", ans: "Cold", opts: ["Ice", "Warm", "Cold", "Dry"], info: "Hot (गर्म) का विलोम Cold (ठंडा) होता है।" },
+        { q: "Plural form of 'Boy' is:", ans: "Boys", opts: ["Boyes", "Boys", "Boies", "Boyz"], info: "Boy का बहुवचन Boys होता है।" }
+    ]
+        };
 
-            setTimeout(() => {
-                window.location.href = url;
-            }, 2000);
+        let currentModule = null;
+        let currentQIndex = 0;
+        let score = 0;
+        let childName = "";
+
+        const speechText = document.getElementById('speech-text');
+        const teacherMouth = document.getElementById('teacher-mouth');
+        const teacherStick = document.getElementById('teacher-stick');
+        const classroomBoard = document.getElementById('classroom-board');
+        const boardTitle = document.getElementById('board-title');
+        const boardMainContent = document.getElementById('board-main-content');
+        const mainMenu = document.getElementById('main-menu');
+        const gameScreen = document.getElementById('game-screen');
+        const backButton = document.getElementById('back-button');
+        const optionsBox = document.getElementById('options-box');
+        const resultBar = document.getElementById('result-bar');
+        const resultMessage = document.getElementById('result-message');
+        const scoreDisplay = document.getElementById('score-display');
+        
+        const nameScreen = document.getElementById('name-screen');
+        const mainGameplayArea = document.getElementById('main-gameplay-area');
+        const userNameInput = document.getElementById('user-name-input');
+
+        // पेज लोड होने पर चेक करें कि नाम पहले से सेव है या नहीं
+        window.onload = function() {
+            let savedName = localStorage.getItem("balPathshalaName");
+            if (savedName) {
+                childName = savedName;
+                showDashboard();
+            } else {
+                nameScreen.style.display = "block";
+                mainGameplayArea.style.display = "none";
+                arunSirSpeak("हेलो प्यारे बच्चे, अपना सुंदर सा नाम लिखो ताकि मैं आपको नाम से बुला सकूँ!");
+            }
+        };
+
+        function saveNameAndStart() {
+            let nameVal = userNameInput.value.trim();
+            if (nameVal === "") {
+                arunSirSpeak("अरे, अपना नाम तो लिखो बच्चे!");
+                alert("कृपया अपना नाम लिखें!");
+                return;
+            }
+            localStorage.setItem("balPathshalaName", nameVal);
+            childName = nameVal;
+            showDashboard();
+        }
+
+        function resetName() {
+            localStorage.removeItem("balPathshalaName");
+            window.speechSynthesis.cancel();
+            nameScreen.style.display = "block";
+            mainGameplayArea.style.display = "none";
+            resultBar.style.display = "none";
+            userNameInput.value = "";
+            arunSirSpeak("चलो, अपना नया नाम बताओ बच्चे!");
+        }
+
+        function showDashboard() {
+            nameScreen.style.display = "none";
+            mainGameplayArea.style.display = "block";
+            showMainMenu();
+        }
+
+        function arunSirSpeak(text, callback) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'hi-IN';
+                utterance.rate = 0.92;
+
+                teacherMouth.classList.add('talking');
+                teacherStick.classList.add('stick-moving');
+                
+                utterance.onend = () => {
+                    teacherMouth.classList.remove('talking');
+                    teacherStick.classList.remove('stick-moving');
+                    if(callback) callback();
+                };
+                window.speechSynthesis.speak(utterance);
+            } else {
+                if(callback) callback();
+            }
+        }
+
+        function startTopic(moduleNum) {
+            currentModule = moduleNum;
+            currentQIndex = 0;
+            
+            mainMenu.style.display = 'none';
+            gameScreen.style.display = 'block';
+            backButton.style.display = 'block';
+            resultBar.style.display = 'none';
+
+            let introTexts = [
+                "", 
+                `चलो ${childName}, अब हम सब मिलकर ए से जेड तक अल्फाबेट्स सीखेंगे!`,
+                `अरे वाह ${childName}! अब हम नए-नए शब्दों के मजेदार अर्थ सीखेंगे।`,
+                `टेंस की क्लास शुरू हो गई है ${childName}, ध्यान से समझना!`,
+                `वाक्यों का सही इस्तेमाल करना सीखते हैं, चलिए ${childName}!`,
+                `${childName}, डायरेक्ट इनडायरेक्ट स्पीच समझना अब होगा बहुत आसान!`,
+                `चलो ${childName}, हिंदी लाइनों को फटाफट इंग्लिश में बदलना सीखते हैं!`,
+                `इंग्लिश में लिखी बातों का हिंदी मतलब समझते हैं, आ जाओ ${childName}!`,
+                `परीक्षा की घड़ी आ गई ${childName}, देखते हैं आप कितने अंक लाते हो!`
+            ];
+
+            boardTitle.innerText = `TOPIC CODE: 0${moduleNum}`;
+            boardMainContent.innerText = "क्लास शुरू हो रही है... 📖";
+            speechText.innerText = `अरुण सर: शुरू करते हैं ${childName}... 🎧`;
+            
+            arunSirSpeak(introTexts[moduleNum], () => {
+                loadQuestion();
+            });
+        }
+
+        function showMainMenu() {
+            window.speechSynthesis.cancel();
+            currentModule = null;
+            mainMenu.style.display = 'grid';
+            gameScreen.style.display = 'none';
+            backButton.style.display = 'none';
+            resultBar.style.display = 'none';
+            boardTitle.innerText = "WELCOME CLASS";
+            boardMainContent.innerText = `नमस्ते ${childName}, आज कुछ नया सीखते हैं! 🎯`;
+            speechText.innerText = `अरुण सर: कोई भी नया टॉपिक चुनो ${childName}, फिर साथ में मिलकर पढ़ेंगे!`;
+            
+            arunSirSpeak(`नमस्ते ${childName}! बाल पाठशाला में आपका स्वागत है। नीचे से कोई भी प्यारा सा टॉपिक चुनो और पढ़ना शुरू करो!`);
+        }
+
+        function loadQuestion() {
+            resultBar.style.display = 'none';
+            let currentList = megaDatabase[currentModule] || megaDatabase[1];
+
+            if (currentQIndex >= currentList.length) {
+                endClass();
+                return;
+            }
+
+            let data = currentList[currentQIndex];
+            
+            boardMainContent.innerText = data.q;
+            speechText.innerText = `अरुण सर: बोर्ड पर देखो ${childName} और सही उत्तर चुनो!`;
+            
+            arunSirSpeak(`${childName}, बताओ ... ` + data.q);
+
+            optionsBox.innerHTML = '';
+            data.opts.forEach(option => {
+                const btn = document.createElement('button');
+                btn.className = 'opt-btn';
+                btn.innerText = option;
+                btn.onclick = () => verifySelection(btn, option, data.ans, data.info);
+                optionsBox.appendChild(btn);
+            });
+        }
+
+        function verifySelection(selectedBtn, chosenValue, correctValue, explanatoryNote) {
+            const allButtons = document.querySelectorAll('.opt-btn');
+            allButtons.forEach(b => b.disabled = true);
+
+            resultBar.style.display = 'block';
+
+            if (chosenValue === correctValue) {
+                score += 10;
+                scoreDisplay.innerText = `⭐: ${score}`;
+                resultBar.className = "bottom-bar success-bar";
+                resultMessage.innerHTML = `🎉 अरे वाह ${childName}! बिल्कुल सही जवाब! <br><small>${explanatoryNote}</small>`;
+                speechText.innerText = `अरुण सर: शाबाश ${childName}! सही जवाब ${correctValue} ही है।`;
+                arunSirSpeak(`अरे वाह ${childName}! बिल्कुल सही जवाब! और बात यह है कि ${explanatoryNote}`);
+            } else {
+                resultBar.className = "bottom-bar wrong-bar";
+                resultMessage.innerHTML = `😢 ओहो ${childName}! थोड़ा सा चूक गए। <br><small>सही उत्तर बोर्ड पर देखो: <b>${correctValue}</b></small>`;
+                speechText.innerText = `अरुण सर: कोई बात नहीं ${childName}, सीखो! सही जवाब ${correctValue} है।`;
+                arunSirSpeak(`ओहो ${childName}! कोई बात नहीं बच्चे, कोशिश करने वालों की हार नहीं होती। बोर्ड पर देखो, इसका सही जवाब है ${correctValue}.`);
+            }
+        }
+
+        function handleNext() {
+            currentQIndex++;
+            loadQuestion();
+        }
+
+        function endClass() {
+            resultBar.style.display = 'none';
+            gameScreen.style.display = 'none';
+            boardMainContent.innerText = "क्लास समाप्त! ⭐️";
+            let closingText = `अरे वाह ${childName}! आपने आज की क्लास पूरी कर ली। मुझे बहुत मज़ा आया, अब मिलेंगे अगली क्लास में!`;
+            speechText.innerText = closingText;
+            arunSirSpeak(closingText, () => {
+                showMainMenu();
+            });
         }
     </script>
 </body>
